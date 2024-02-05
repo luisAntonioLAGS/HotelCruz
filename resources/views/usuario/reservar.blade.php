@@ -25,7 +25,6 @@
           </div>
         </div>
       </div>
-      <div class="bg-white py-24 sm:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="mx-auto max-w-2xl sm:text-center">
             <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Solicitud de Reservación</h2>
@@ -142,6 +141,8 @@
     <div class="mt-4 flex items-center justify-end gap-x-6">
       <button type="submit" class="rounded-md bg-[#0A1E4C] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Enviar Solicitud</button>
     </div>
+</div>
+</div>
   </form>
 </body>
 @livewire("pie")

@@ -1,7 +1,11 @@
 <div>
     <style>
         .active{
-            color: white;
+            background-color: grey;
+            color:white;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 0px;
 
         }
     </style>
@@ -44,19 +48,21 @@
 
                 <div class="flex space-x-4 uppercase mt-3">
 
-                 <li class=""> <a  href="{{ route("inicio") }}" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
-                    @dump(request()->routeIs("inicio"))
-                 </li>
+                 <a class="{{ (request()->routeIs("inicio")) ? 'active' : '' }} text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="{{ route("inicio") }}" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home
+                </a>
 
-                  <a href="{{ route("habitaciones") }}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
-                 >Habitaciones</a>
-
-                  <a href="{{ route("concepto") }}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Concepto</a>
-
-                  <a href="{{ route("juchitan") }}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">juchitán</a>
-                  <a href="{{ route("salones") }}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Salones</a>
-                  <a href="{{ route("contacto") }}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contacto</a>
-                  <a href="{{ route("reservar") }}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Reservar</a>
+                <a class="{{ (request()->routeIs("habitaciones")) ? 'active' : '' }} text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="{{ route("habitaciones") }}" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">habitaciones
+                </a>
+                <a class="{{ (request()->routeIs("concepto")) ? 'active' : '' }} text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="{{ route("concepto") }}" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Concepto
+                </a>
+                <a class="{{ (request()->routeIs("juchitan")) ? 'active' : '' }} text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="{{ route("juchitan") }}" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Juchitán
+                </a>
+                <a class="{{ (request()->routeIs("salones")) ? 'active' : '' }} text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="{{ route("salones") }}" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Salones
+                </a>
+                <a class="{{ (request()->routeIs("contacto")) ? 'active' : '' }} text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="{{ route("contacto") }}" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Contacto
+                </a>
+                <a class="{{ (request()->routeIs("reservar")) ? 'active' : '' }} text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" href="{{ route("reservar") }}" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Reservar
+                </a>
                   <a href="{{ route("login") }}" type="button" class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Login</a>
                 </div>
               </div>
@@ -67,17 +73,17 @@
 
           <div class="space-y-1 px-2 pb-3 pt-2">
 
-            <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Home</a>
+            <a href="{{ route("inicio") }}" class=" text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Home</a>
 
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Habitaciones</a>
+            <a href="{{ route("habitaciones") }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Habitaciones</a>
 
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Concepto</a>
+            <a href="{{ route("concepto") }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Concepto</a>
 
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Juchitán</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Salones</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">contacto</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Reservar</a>
-
+            <a href="{{ route("juchitan") }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Juchitán</a>
+            <a href="{{ route("salones") }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Salones</a>
+            <a href="{{ route("contacto") }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">contacto</a>
+            <a href="{{ route("reservar") }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Reservar</a>
+            <a href="{{ route("login") }}" type="button" class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 block">Login</a>
           </div>
         </div>
       </nav>

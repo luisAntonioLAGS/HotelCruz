@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Reservaciones</title>
+  <title>Alberca</title>
   @vite('resources/css/app.css')
 
 
@@ -25,8 +25,7 @@
       <div class="px-4 sm:px-6 lg:px-8">
         <div class="sm:flex sm:items-center">
           <div class="sm:flex-auto">
-            <h1 class=" font-semibold leading-6 text-white text-3xl">Huéspedes</h1>
-            <p class="mt-2 text-sm text-gray-300">Da de alta al huesped segun el correo recibido</p>
+            <h1 class=" font-semibold leading-6 text-white text-3xl">Alberca</h1>
           </div>
           @if(session('success'))
           <div class="alert alert-success" style="color: #fff; font-weight: bold;">
@@ -50,50 +49,32 @@
           </div>
           @endif
           <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-            <a href="{{ route("registrocliente") }}" type="button" class="block rounded-md bg-indigo-500 px-3 py-2 text-center text-sm font-semibold text-white hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Agregar huesped</a>
+            <a href="{{ route("registroalberca") }}" type="button" class="block rounded-md bg-indigo-500 px-3 py-2 text-center text-sm font-semibold text-white hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Agregar registro</a>
           </div>
         </div>
         <div class="mt-8 flow-root">
           <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8 text-white">
-              <table class="min-w-full divide-y divide-gray-800 dataTablePage">
+              <table class="min-w-full divide-y divide-gray-700 dataTablePage">
                 <thead>
                   <tr>
-                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0">Nombre Completo</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Piso</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">No. Habitación</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Estatus</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Fecha Entrada</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Fecha Salida</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Hora Check Entrada</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Hora Check Salida</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Cantidad Días</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Total</th>
-                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Acciones</th>
+                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Nombre Cliente</th>
+                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Fecha</th>
+                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Precio</th>
+                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Pago</th>
+                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Cambio</th>
+                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-white">Fecha Registro</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-800">
-                  @foreach($reservaciones as $reservacion)
+                  @foreach($alberca as $alberca)
                   <tr>
-                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">{{ $reservacion->NombreCliente }}</td>
-                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-300">{{ $reservacion->PisoHabitacion }}</td>
-                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-300">{{ $reservacion->NoHabitacion }}</td>
-                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-300">{{ $reservacion->EstatusValidacion }}</td>
-                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-300">{{ $reservacion->FechaInicio }}</td>
-                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-300">{{ $reservacion->FechaFin }}</td>
-                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-300">{{ $reservacion->HoraCheckEntrada }}</td>
-                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-300">{{ $reservacion->HoraCheckSalida }}</td>
-                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-300">{{ $reservacion->TotalDias }}</td>
-                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-300">${{ $reservacion->TotalReservacion }}</td>
-                    <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                      <a href="{{ route(($reservacion->EstatusValidacion === 'PENDIENTE') ? 'checkin' : 'checkout', ['id' => $reservacion->Folio]) }}" class="text-indigo-400 hover:text-indigo-300">
-                        @if($reservacion->EstatusValidacion === 'PENDIENTE')
-                        Check IN
-                        @elseif ($reservacion->EstatusValidacion === 'EN CURSO')
-                        Check OUT
-                        @endif
-                      </a>
-                    </td>
+                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">{{ $alberca->NombreCliente }}</td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-300">{{ $alberca->Fecha }}</td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-300">{{ $alberca->PrecioServicio }}</td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-300">{{ $alberca->Pago }}</td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-300">{{ $alberca->Cambio }}</td>
+                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-300">{{ $alberca->FechaRegistro }}</td>
                   </tr>
                   @endforeach
 
@@ -128,8 +109,8 @@
             //Botón para Excel
             extend: "excelHtml5",
             footer: true,
-            title: "Registro de reservaciones",
-            filename: "registro_de_reservaciones",
+            title: "Registro de alberca",
+            filename: "registro_de_alberca",
             autoFilter: true,
             sheetName: "Exported data",
 
@@ -142,8 +123,8 @@
             download: "open",
             footer: true,
             orientation: "landscape",
-            title: "Registro de reservaciones",
-            filename: "registro_de_reservaciones",
+            title: "Registro de alberca",
+            filename: "registro_de_alberca",
             text: '<span class="badge bg-danger"><i class="fas fa-file-pdf"></i></span>',
             exportOptions: {
               columns: [0, ":visible"],
@@ -153,8 +134,8 @@
           {
             extend: "copyHtml5",
             footer: true,
-            title: "Registro de reservaciones",
-            filename: "registro_de_reservaciones",
+            title: "Registro de alberca",
+            filename: "registro_de_alberca",
             text: '<span class="badge bg-primary"><i class="fas fa-copy"></i></span>',
             exportOptions: {
               columns: [0, ":visible"],
@@ -164,8 +145,8 @@
           {
             extend: "print",
             footer: true,
-            title: "Registro de reservaciones",
-            filename: "registro_de_reservaciones",
+            title: "Registro de alberca",
+            filename: "registro_de_alberca",
             text: '<span class="badge bg-dark" id="imprimir"><i class="fas fa-print"></i></span>',
           },
           //Botón para cvs
@@ -174,8 +155,8 @@
             footer: true,
             charset: "utf-8",
             bom: true,
-            title: "Registro de reservaciones",
-            filename: "registro_de_reservaciones",
+            title: "Registro de alberca",
+            filename: "registro_de_alberca",
             text: '<span class="badge bg-success"><i class="fas fa-file-csv"></i></span>',
           },
           {
